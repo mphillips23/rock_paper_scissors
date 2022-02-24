@@ -1,3 +1,6 @@
+let player_score = 0;
+let computer_score = 0;
+
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -24,44 +27,49 @@ function playround() {
     var player_result = playerSelection();
     console.log(`Your choice was ${player_result}. Your opponent's was ${computer_result}.`)
     if (player_result === "Rock" && computer_result === "Rock") {
-        console.log("Draw")
+        console.log("Draw");
     }
     else if (player_result === "Rock" && computer_result === "Paper") {
-        console.log("You lose! Paper beats rock")
+        console.log("You lose! Paper beats rock");
     }
     else if (player_result === "Rock" && computer_result === "Scissors") {
-        console.log("You win! Rock beats scissors")
+        console.log("You win! Rock beats scissors");
+        player_score = player_score + 1;
     }
     else if (player_result === "Paper" && computer_result === "Paper") {
-        console.log("Draw!")
+        console.log("Draw!");
     }
     else if (player_result === "Paper" && computer_result === "Rock") {
-        console.log("You win! Paper beats rock")
+        console.log("You win! Paper beats rock");
+        player_score = player_score + 1;
     }
     else if (player_result === "Paper" && computer_result === "Scissors") {
-        console.log("You lose! Scissors beats paper")
+        console.log("You lose! Scissors beats paper");
     }
     else if (player_result === "Scissors" && computer_result === "Scissors") {
-        console.log("Draw!")
+        console.log("Draw!");
     }
     else if (player_result === "Scissors" && computer_result === "Rock") {
-        console.log("You lose! Rock beats scissors")
+        console.log("You lose! Rock beats scissors");
     }
     else if (player_result === "Scissors" && computer_result === "Paper") {
-        console.log("You win! Scissors beats paper")
+        console.log("You win! Scissors beats paper");
+        player_score = player_score + 1;
     }
 }
 
 /* playround(); */
 
+
 function play_game(number_of_rounds) {
-    var result_list = [];
     for (let i = 0; i < number_of_rounds; i++) {
        playround();
     }
+    console.log("You won " + player_score + " games")
 }
 
 play_game(prompt("Enter how many rounds you want to play"));
+
 
 /*
 Start a new Git repo for your project.
